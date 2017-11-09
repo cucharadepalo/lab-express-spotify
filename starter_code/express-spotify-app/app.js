@@ -45,30 +45,30 @@ app.get('/artists', (req, res) => {
   let artist = req.query.artist || 'Anderson+.Paak';
   spotifyApi.searchArtists(artist)
     .then(function(data) {
-      console.log('Artists information', data.body.artists);
+      //console.log('Artists information', data.body.artists);
       res.render('artist', {data});
     }, function(err) {
       console.error(err);
     });
 });
 
-app.get('/albums', (req, res) => {
-  let artistId = req.query.artist || '3jK9MiCrA42lLAdMGUZpwa';
+app.get('/albums/:id', (req, res) => {
+  let artistId = req.params.id || '3jK9MiCrA42lLAdMGUZpwa';
   spotifyApi.getArtistAlbums(artistId, { limit: 50, offset: 0 })
   .then(function(data) {
-    console.log('Artist albums', data.body);
+    //console.log('Artist albums', data.body);
     res.render('albums', {data});
   }, function(err) {
     console.error(err);
   });
 });
 
-app.get('/tracks', (req, res) => {
+app.get('/tracks/:albumId', (req, res) => {
   // Get tracks in an album
-  let albumId = req.query.album || '73uicPCTt24cmTc9bVaOIp';
+  let albumId = req.params.albumId || '73uicPCTt24cmTc9bVaOIp';
   spotifyApi.getAlbumTracks(albumId)
     .then(function(data) {
-      console.log(data.body);
+      //console.log(data.body);
       res.render('tracks', {data});
     }, function(err) {
       console.log('Something went wrong!', err);

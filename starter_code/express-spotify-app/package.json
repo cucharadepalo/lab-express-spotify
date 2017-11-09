@@ -4,7 +4,7 @@
   "description": "Ironhack Daily Module 2 day 3",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js localhost 3030",
+    "start": "nodemon app.js localhost 3000",
     "test": "node test"
   },
   "repository": {

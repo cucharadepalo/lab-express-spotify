@@ -6,7 +6,7 @@
         id = album.id,
         name = album.name,
         type = album.album_type,
-        imgUrl = "./images/img-album.png";
+        imgUrl = "/images/img-album.png";
 
         if (album.images[0]) {
           imgUrl = album.images[0].url
@@ -15,7 +15,7 @@
   <div class="item <%= type %>">
     <img src="<%= imgUrl %>" alt="<%= name %>">
     <p class="name"> <%= name %></p>
-    <a href="/tracks?album=<%= id %>" class="btn">View Tracks</a>
+    <a href="/tracks/<%= id %>" class="btn">View Tracks</a>
   </div>
   <%}%>
 </div>
